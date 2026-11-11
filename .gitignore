@@ -1,0 +1,41 @@
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node.js
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+
+# Build and coverage
+build/
+coverage/
+
+# Logs
+*.log
+
+# Local database files
+*.sqlite
+*.sqlite3
+*.db
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
