@@ -21,15 +21,19 @@ class StudentVerification(Base):
     __tablename__ = "student_verifications"
 
     __table_args__ = (
-        CheckConstraint(
-            "document_type IN ('STUDENT_ID', 'ENROLLMENT_LETTER', 'OTHER')",
-            name="ck_student_verifications_document_type"
-        ),
-        CheckConstraint(
-            "status IN ('PENDING', 'APPROVED', 'REJECTED')",
-            name="ck_student_verifications_status"
-        ),
-    )
+    CheckConstraint(
+        "document_type IN ('STUDENT_ID', 'ENROLLMENT_LETTER', 'OTHER')",
+        name="ck_student_verifications_document_type"
+    ),
+    CheckConstraint(
+        "status IN ('PENDING', 'APPROVED', 'REJECTED')",
+        name="ck_student_verifications_status"
+    ),
+    CheckConstraint(
+        "file_size_bytes >= 0",
+        name="ck_student_verifications_file_size"
+    ),
+)
 
     id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),
