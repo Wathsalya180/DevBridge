@@ -83,8 +83,6 @@ The project is developed by two people using **full-stack, module-based ownershi
 
 Development is incremental: the shared foundation is established first, followed by independently developed modules and planned integration checkpoints. Architecture, common contracts, security reviews, integration and final release are joint responsibilities.
 
-See [System Architecture and Development Plan](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/SYSTEM_ARCHITECTURE.md) for the architecture, data flows, module responsibilities, development increments and engineering conventions.
-
 ## Repository structure
 
 ```text
@@ -108,26 +106,7 @@ The five current database tables are:
 - `student_verifications`
 - `email_verifications`
 
-The complete project, submission, evaluation, Premium and live-project feature sets are still being designed and developed. Do not treat a planned feature as working software. Check the [Current Implementation Progress](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/CURRENT_PROGRESS.md) before assuming a capability exists.
-
-## Documentation
-
-The detailed project documentation is maintained separately in [Wathsalya180/DevBridge_chat](https://github.com/Wathsalya180/DevBridge_chat).
-
-Start with:
-
-1. [Documentation repository README](https://github.com/Wathsalya180/DevBridge_chat)
-2. [Project overview](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/PROJECT_OVERVIEW.md)
-3. [Software requirements specification](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/SRS.md)
-4. [System architecture](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/SYSTEM_ARCHITECTURE.md)
-5. [User roles and workflows](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/USER_ROLES_AND_WORKFLOWS.md)
-6. [Business rules](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/BUSINESS_RULES.md)
-7. [Database design](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/DATABASE_DESIGN.md)
-8. [API documentation](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/API_DOCUMENTATION.md)
-9. [Development setup](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/DEVELOPMENT_SETUP.md)
-10. [Team workflow and module ownership](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/TEAM_WORKFLOW.md)
-11. [Project roadmap](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/PROJECT_ROADMAP.md)
-12. [Current implementation progress](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/CURRENT_PROGRESS.md)
+The complete project, submission, evaluation, Premium and live-project feature sets are still being designed and developed. Do not treat a planned feature as working software.
 
 ## Local development
 
