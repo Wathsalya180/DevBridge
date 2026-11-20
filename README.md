@@ -1,25 +1,70 @@
 # DevBridge
 
-**Project-Based Developer Assessment and Professional Opportunity Platform**
+**A Project-Based Developer Assessment and Professional Opportunity Platform**
 
-DevBridge connects developers—especially university students and early-career programmers—with companies through practical software projects. Companies can publish structured projects, assess submissions against their own marking criteria, and identify capable developers through demonstrated work.
+DevBridge is a web and mobile platform designed to connect software developers—especially university students and early-career programmers—with companies through practical software projects.
 
-## Product overview
+The central idea is simple: **demonstrate skills through real work, not only through a CV.**
 
-- **Demo projects:** Free and unpaid projects published by companies with marking rubrics. Developers submit work through a GitHub URL or ZIP and receive AI-assisted assessment and feedback.
-- **Live projects:** Opportunities published by verified companies. Only developers with an active paid Premium subscription can apply. Companies select, supervise and evaluate developers. Compensation (paid or unpaid) must be stated clearly.
-- **Performance and ranking:** Based on factors such as quality, difficulty, success rate, consistency, deadlines and company evaluation. Exact weights are still being decided.
-- **Premium:** Eligibility and paid subscription are separate; meeting an eligibility pathway does not automatically activate Premium.
+## The problem DevBridge addresses
+
+Students and early-career developers may understand programming concepts but have limited opportunities to demonstrate their abilities through realistic tasks. At the same time, companies may find it difficult to assess a candidate's practical skills using a CV alone.
+
+DevBridge aims to bridge this gap by providing structured projects, transparent assessment criteria, feedback and a pathway from practice to professional opportunities.
+
+## Who uses DevBridge?
+
+- **Developers:** Build practical experience, submit project work, receive structured feedback, build a record of performance and apply for eligible live projects.
+- **Companies:** Publish project briefs, define assessment criteria, review submissions and identify capable developers through demonstrated work.
+- **Administrators:** Verify companies, oversee platform activity and manage safety, moderation and platform rules.
+
+## How the platform works
+
+### 1. Demo projects
+
+Demo projects are free, unpaid practice and assessment opportunities.
+
+- Companies publish a project brief and define its marking rubric.
+- Developers discover projects and submit their work through a GitHub repository URL or ZIP file.
+- The planned AI-assisted assessment reviews submitted code and documentation against the company's criteria and provides scores, evidence and feedback.
+- Demo projects help developers build experience and a history of assessed work.
+
+The initial assessment approach is static inspection; the platform must not claim that submitted code was executed or tested unless a separate secure execution system is actually implemented.
+
+### 2. Performance and Premium
+
+Developers build a performance history through their completed project work. Performance and ranking are intended to consider factors such as solution quality, project difficulty, success rate, consistency, deadlines and company evaluations. Exact ranking weights remain under design.
+
+Premium has two separate concepts:
+
+- **Eligibility:** A developer must meet an approved performance pathway.
+- **Subscription:** The developer must separately purchase and maintain an active paid Premium subscription.
+
+Meeting the eligibility requirements does not automatically activate Premium.
+
+### 3. Live projects
+
+Live projects are real-world opportunities published by verified companies.
+
+- Only verified companies may publish live projects.
+- Developers need an active paid Premium subscription to apply.
+- Companies review applications, select developers, supervise the work and provide evaluations.
+- Each listing must clearly state whether the project is paid or unpaid and explain its compensation terms.
+- Premium access does not guarantee selection or payment.
+
+## Product direction
+
+DevBridge is intended to support **both web and mobile**. Development is currently web-first while using Expo, React Native and TypeScript to share application code where practical.
 
 ## Project principles
 
 - Assess practical work, not just CVs.
-- Companies define the criteria used to assess their demo projects.
+- Make assessment criteria and feedback understandable.
 - Keep evidence and explanations alongside AI-assisted assessment.
 - Do not claim code was executed or tested unless it really was.
-- Keep API secrets and database credentials out of source control.
-- Enforce roles, ownership, verification and Premium access in the backend; hiding a frontend control is not authorization.
-- Both project members contribute across frontend, backend, database, integration and testing through full-stack module ownership.
+- Protect user data and keep API secrets and database credentials out of source control.
+- Enforce roles, ownership, company verification and Premium access in the backend; hiding a frontend control is not authorization.
+- Distinguish Premium eligibility from an active paid subscription.
 
 ## Technology stack
 
@@ -36,21 +81,9 @@ DevBridge connects developers—especially university students and early-career 
 
 The project is developed by two people using **full-stack, module-based ownership**. We do not divide the work into a frontend person and a backend person. Each person owns complete functional modules, including UI/UX, frontend, backend, database/SQL, APIs, tests and documentation.
 
-Development is incremental (Sprints 0–8): shared foundation first, then independently developed modules with planned integration checkpoints. Architecture, common contracts, security reviews, integration and final release are joint responsibilities.
+Development is incremental: the shared foundation is established first, followed by independently developed modules and planned integration checkpoints. Architecture, common contracts, security reviews, integration and final release are joint responsibilities.
 
-See [System Architecture and Development Plan](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/SYSTEM_ARCHITECTURE.md) for architecture, data flows, functional modules, responsibility allocation, sprint plan, Git/testing conventions and open decisions.
-
-## Database design direction
-
-The complete platform schema is still being designed. The initial database contains five core tables; the complete domain model is not yet implemented.
-
-Agreed conceptual directions include:
-- A shared project model for DEMO and LIVE projects, with type-specific workflows handled through related records.
-- A project can belong to multiple categories through a many-to-many relationship.
-- A shared skills and technologies catalogue is reused by developer profiles and project requirements.
-- Project skill requirements distinguish required and preferred skills.
-
-These are **design decisions, not implemented project-domain tables**. See the [Database Design](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/DATABASE_DESIGN.md) document for details and remaining decisions.
+See [System Architecture and Development Plan](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/SYSTEM_ARCHITECTURE.md) for the architecture, data flows, module responsibilities, development increments and engineering conventions.
 
 ## Repository structure
 
@@ -65,23 +98,25 @@ DevBridge/
 
 ## Current implementation status
 
-The repository contains the initial frontend and backend foundations, PostgreSQL connection/session setup, five core database models and an applied initial Alembic migration. Authentication libraries have been installed and smoke-tested, but registration/login workflows are not yet implemented.
+The repository contains the initial frontend and backend foundations, PostgreSQL connection/session setup, five core database models and an applied initial Alembic migration. Authentication libraries have been installed and smoke-tested, but registration and login workflows are not yet implemented.
 
-The five current tables are:
+The five current database tables are:
+
 - `users`
 - `developer_profiles`
 - `company_profiles`
 - `student_verifications`
 - `email_verifications`
 
-Do not treat a planned feature as working software. Check the [Current Implementation Progress](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/CURRENT_PROGRESS.md) document before assuming a capability exists.
+The complete project, submission, evaluation, Premium and live-project feature sets are still being designed and developed. Do not treat a planned feature as working software. Check the [Current Implementation Progress](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/CURRENT_PROGRESS.md) before assuming a capability exists.
 
-## Documentation repository
+## Documentation
 
-The application source code is maintained in this repository. The detailed project documentation is maintained separately in [Wathsalya180/DevBridge_chat](https://github.com/Wathsalya180/DevBridge_chat).
+The detailed project documentation is maintained separately in [Wathsalya180/DevBridge_chat](https://github.com/Wathsalya180/DevBridge_chat).
 
-Useful documentation:
-1. [Documentation repository README](https://github.com/Wathsalya180/DevBridge_chat/blob/main/README.md)
+Start with:
+
+1. [Documentation repository README](https://github.com/Wathsalya180/DevBridge_chat)
 2. [Project overview](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/PROJECT_OVERVIEW.md)
 3. [Software requirements specification](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/SRS.md)
 4. [System architecture](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/SYSTEM_ARCHITECTURE.md)
@@ -93,12 +128,6 @@ Useful documentation:
 10. [Team workflow and module ownership](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/TEAM_WORKFLOW.md)
 11. [Project roadmap](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/PROJECT_ROADMAP.md)
 12. [Current implementation progress](https://github.com/Wathsalya180/DevBridge_chat/blob/main/docs/CURRENT_PROGRESS.md)
-
-Documentation uses these status labels:
-- **Implemented** — exists in the current codebase and has been checked.
-- **Planned** — agreed direction, not necessarily implemented.
-- **Proposed** — recommendation that still needs team approval.
-- **TBD** — decision has not yet been made.
 
 ## Local development
 
