@@ -20,20 +20,47 @@ from app.db_base import Base
 class StudentVerification(Base):
     __tablename__ = "student_verifications"
 
+    
     __table_args__ = (
-    CheckConstraint(
-        "document_type IN ('STUDENT_ID', 'ENROLLMENT_LETTER', 'OTHER')",
-        name="ck_student_verifications_document_type"
-    ),
-    CheckConstraint(
-        "status IN ('PENDING', 'APPROVED', 'REJECTED')",
-        name="ck_student_verifications_status"
-    ),
-    CheckConstraint(
-        "file_size_bytes >= 0",
-        name="ck_student_verifications_file_size"
-    ),
-)
+        CheckConstraint(
+            "document_type IN ('STUDENT_ID', 'ENROLLMENT_LETTER', 'OTHER')",
+            name="ck_student_verifications_document_type"
+        ),
+        CheckConstraint(
+            "status IN ('PENDING', 'APPROVED', 'REJECTED')",
+            name="ck_student_verifications_status"
+        ),
+        CheckConstraint(
+            "file_size_bytes >= 0",
+            name="ck_student_verifications_file_size"
+        ),
+        CheckConstraint(
+            """
+            (
+                status = 'PENDING'
+                AND reviewed_by IS NULL
+                AND reviewed_at IS NULL
+                AND rejection_reason IS NULL
+            )
+            OR
+            (
+                status = 'APPROVED'
+                AND reviewed_by IS NOT NULL
+                AND reviewed_at IS NOT NULL
+                AND rejection_reason IS NULL
+            )
+            OR
+            (
+                status = 'REJECTED'
+                AND reviewed_by IS NOT NULL
+                AND reviewed_at IS NOT NULL
+                AND rejection_reason IS NOT NULL
+                AND length(trim(rejection_reason)) > 0
+            )
+            """,
+            name="ck_student_verifications_review_consistency"
+        ),
+    )
 
     id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),
